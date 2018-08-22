@@ -23,11 +23,9 @@ class PokemonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let path = Bundle.main.url(forResource: "Pokemons", withExtension: "json") else {
-            fatalError("No JSON was found")
+        Pokemon.all { pokemons in
+            self.pokemons = pokemons
         }
-        let pokemonData = try? Data(contentsOf: path)
-        pokemons = try? JSONDecoder().decode([Pokemon].self, from: pokemonData!)
         
         self.pokemonCollectionView.dataSource = self
         self.pokemonCollectionView.delegate = self

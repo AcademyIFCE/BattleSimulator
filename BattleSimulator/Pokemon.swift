@@ -25,6 +25,15 @@ class Pokemon: Codable, Equatable {
         case dps = "attack"
     }
     
+    static func all(completion: (([Pokemon]?) -> Void)) {
+        guard let path = Bundle.main.url(forResource: "Pokemons", withExtension: "json") else {
+            fatalError("No JSON was found")
+        }
+        let pokemonData = try? Data(contentsOf: path)
+        let pokemons = try? JSONDecoder().decode([Pokemon].self, from: pokemonData!)
+        completion(pokemons)
+    }
+    
     static func == (lhs: Pokemon, rhs: Pokemon) -> Bool {
         return lhs.cp == rhs.cp && lhs.dps == rhs.dps
     }
