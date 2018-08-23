@@ -23,9 +23,7 @@ class PokemonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Pokemon.all { pokemons in
-            self.pokemons = pokemons
-        }
+        self.pokemons = Pokemon.all()
         
         self.pokemonCollectionView.dataSource = self
         self.pokemonCollectionView.delegate = self

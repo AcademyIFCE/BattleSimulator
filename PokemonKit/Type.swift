@@ -9,7 +9,7 @@
 import Foundation
 
 
-enum Type: String, Codable {
+public enum Type: String, Codable {
     
     case normal
     case fighting

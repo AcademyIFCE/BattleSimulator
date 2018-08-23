@@ -1,16 +1,16 @@
 //
-//  Pokemon.swift
-//  BattleSimulator
+//  MockPokemon.swift
+//  PokemonKitTests
 //
-//  Created by Davi Cabral on 22/08/18.
+//  Created by Yuri on 23/08/18.
 //  Copyright © 2018 Davi Cabral. All rights reserved.
 //
 
-import UIKit
-import PokemonKit
+import Foundation
+@testable import PokemonKit
 
-class Pokemon: PokemonAttributes, Codable, Equatable {
-
+class MockPokemon: PokemonAttributes, Codable, Equatable {
+    
     var name: String
     var type: Type
     var cp: Int?
@@ -24,7 +24,7 @@ class Pokemon: PokemonAttributes, Codable, Equatable {
         case dps = "attack"
     }
     
-    static func == (lhs: Pokemon, rhs: Pokemon) -> Bool {
+    static func == (lhs: MockPokemon, rhs: MockPokemon) -> Bool {
         return lhs.cp == rhs.cp && lhs.dps == rhs.dps && lhs.type == rhs.type
     }
 }

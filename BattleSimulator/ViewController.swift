@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PokemonKit
 
 class ViewController: UIViewController {
 
@@ -63,6 +64,8 @@ class ViewController: UIViewController {
         }
         
         let winner = FightLogic.winnerFromBattle(attacker: attacker, defender: defender)
+        
+        
         let alert = UIAlertController(title: "Resultado", message: "\(winner == nil ? "Houve um empate" : "\(winner!.name) venceu")", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
